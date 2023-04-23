@@ -58,7 +58,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker-compose pull elenatim/gates:latest
+            sudo docker compose pull elenatim/gates:latest
             #остановка всех контейнеров
-            sudo docker-compose stop $(sudo docker ps -a -q)
-            sudo docker-compose run --rm -d -p 5000:5000 elenatim/gates:latest 
+            sudo docker compose stop $(sudo docker compose ps -a -q)
+            sudo docker compose run --rm -d -p 5000:5000 elenatim/gates:latest 
